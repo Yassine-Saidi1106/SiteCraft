@@ -9,6 +9,8 @@ const http = require("http") // 1 importation de protocol web
 var indexRouter = require('./routes/index');// importina routes
 var usersRouter = require('./routes/users');
 
+require("dotenv").config() // config .env
+
 var app = express(); // le debut de lexpress
 
 app.use(logger('dev'));
@@ -36,6 +38,6 @@ app.use(function(err, req, res, next) {
   res.json('error');
 });
 const server = http.createServer(app);
-server.listen(5000, () => {
+server.listen(process.env.port, () => {
   console.log("App is running on port 5000");
 });
