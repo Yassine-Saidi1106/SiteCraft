@@ -2,7 +2,7 @@ const mongoose = require("mongoose")
 
 module.exports.connectToMongoDB = async () =>{
     mongoose.set("strictQuery",false )
-    mongoose.connect("mongodb://localhost:27017/SiteCraft").then (
+    mongoose.connect(process.env.mongo_url).then (
         ()=>
             console.log("connect to db")
     ).catch(
